@@ -1,4 +1,4 @@
-<config local-mode="false" alarm-machine="false" job-machine="false" console-machine="true" consumer-machine="true">
+<config local-mode="true" alarm-machine="true" job-machine="true" console-machine="true" consumer-machine="true">
 	<storage>
 		<hdfs id="logview" max-size="128M" server-uri="hdfs://10.1.77.86/user/cat" base-dir="logview"/>
 		<hdfs id="dump" max-size="128M" server-uri="hdfs://10.1.77.86/user/cat" base-dir="dump"/>

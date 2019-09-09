@@ -1,7 +1,7 @@
 <server-config>
 	<server id="default">
 		<properties>
-			<property name="local-mode" value="false" />
+			<property name="local-mode" value="true" />
 			<property name="job-machine" value="false" />
 			<property name="send-machine" value="false" />
 			<property name="alert-machine" value="false" />
