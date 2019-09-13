@@ -18,6 +18,7 @@
  */
 package com.dianping.cat;
 
+import com.dianping.cat.message.Transaction;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -28,6 +29,12 @@ public class CatTest {
 
 	@Test
 	public void test() {
+		Transaction t0 = Cat.newTransaction("URL", "translate/getWordMean");  //你的接口/方法名称
+		t0.setStatus(Transaction.SUCCESS);
+		t0.complete();
+
+		Cat.getProducer().logEvent("123", "234");
+
 		Cat.newTransaction("logTransaction", "logTransaction");
 		Cat.newEvent("logEvent", "logEvent");
 		Cat.newTrace("logTrace", "logTrace");

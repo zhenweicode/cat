@@ -2,10 +2,10 @@
 	<server id="default">
 		<properties>
 			<property name="local-mode" value="true" />
-			<property name="job-machine" value="false" />
+			<property name="job-machine" value="true" />
 			<property name="send-machine" value="false" />
 			<property name="alert-machine" value="false" />
-			<property name="hdfs-machine" value="true" />
+			<property name="hdfs-machine" value="false" />
 			<property name="remote-servers" value="127.0.0.1:2281" />
 			<property name="ldap" value="ldap://ldap.dianpingoa.com/DC=dianpingoa,DC=com" />
 		</properties>

@@ -6,7 +6,7 @@
          <property name="job-machine" value="true"/>
          <property name="send-machine" value="false"/>
          <property name="alarm-machine" value="true"/>
-         <property name="hdfs-enabled" value="true"/>
+         <property name="hdfs-enabled" value="false"/>
          <property name="remote-servers" value="10.66.13.115:8080,10.66.1.196:8080"/>
          <property name="ldap" value="ldap://ldap.dianpingoa.com/DC=dianpingoa,DC=com"/>
       </properties>

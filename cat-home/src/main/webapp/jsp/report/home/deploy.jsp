@@ -45,7 +45,7 @@
 <!-- 6. Please set hadoop environment accordingly. -->
 <!-- 7. Please set ldap info for login the system. -->
 <!-- 8. Please config remote-server if you have many cat servers. -->
-<config local-mode="true" hdfs-machine="true" job-machine="true" alert-machine="true">
+<config local-mode="false" hdfs-machine="false" job-machine="false" alert-machine="false">
 	<storage  local-base-dir="/data/appdatas/cat/bucket/" max-hdfs-storage-time="15" local-report-storage-time="7" local-logivew-storage-time="7">
 		<hdfs id="logview" max-size="128M" server-uri="hdfs://${hdfs_path1}" base-dir="logview"/>
 		<hdfs id="dump" max-size="128M" server-uri="hdfs://${hdfs_path2}" base-dir="dump"/>
