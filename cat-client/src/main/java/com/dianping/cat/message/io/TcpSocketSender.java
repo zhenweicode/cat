@@ -169,6 +169,7 @@ public class TcpSocketSender implements Task, MessageSender, LogEnabled {
 	}
 
 	private void offer(MessageTree tree) {
+		// "Cache","SQL"开头的Transaction消息，或者非Transaction消息，认为是atomicMessage.
 		if (m_configManager.isAtomicMessage(tree)) {
 			boolean result = m_atomicQueue.offer(tree);
 

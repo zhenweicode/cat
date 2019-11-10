@@ -412,6 +412,7 @@ public class DefaultMessageManager extends ContainerHolder implements MessageMan
 			long treePeriod = trimToHour(m_tree.getMessage().getTimestamp());
 			long messagePeriod = trimToHour(message.getTimestamp() - 10 * 1000L); // 10 seconds extra time allowed
 
+			// 上一小时或者超过阈值2000条
 			if (treePeriod < messagePeriod || m_length >= ApplicationSettings.getTreeLengthLimit()) {
 				m_validator.truncateAndFlush(this, message.getTimestamp());
 			}

@@ -23,6 +23,7 @@ import com.dianping.cat.message.ForkedTransaction;
 import com.dianping.cat.message.spi.MessageManager;
 import com.dianping.cat.message.spi.MessageTree;
 
+// Fork/Join中的fork，用于多线程打点
 public class DefaultForkedTransaction extends DefaultTransaction implements ForkedTransaction {
 	private String m_rootMessageId;
 

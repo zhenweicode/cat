@@ -49,19 +49,24 @@ public class CatClientModule extends AbstractModule {
 		// tracking thread start/stop
 		Threads.addListener(new CatThreadListener(ctx));
 
+		// 初始化项目基本信息
 		ClientConfigManager clientConfigManager = ctx.lookup(ClientConfigManager.class);
 
 		// warm up Cat
+		// 初始化MessageManager和MessageProducer
 		Cat.getInstance().setContainer(((DefaultModuleContext) ctx).getContainer());
 
 		// bring up TransportManager
+		// 启动后台发送线程
 		ctx.lookup(TransportManager.class);
 
 		if (clientConfigManager.isCatEnabled()) {
 			// start status update task
+			// 启动定时心跳上报线程，包括常规指标和所有的StatusExtensionRegister中注册的所有指标
 			StatusUpdateTask statusUpdateTask = ctx.lookup(StatusUpdateTask.class);
 			Threads.forGroup("cat").start(statusUpdateTask);
 
+			// 开启数据聚合上报线程
 			Threads.forGroup("cat").start(new LocalAggregator.DataUploader());
 
 			LockSupport.parkNanos(10 * 1000 * 1000L); // wait 10 ms

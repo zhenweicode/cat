@@ -249,6 +249,7 @@ public class DefaultMessageProducer implements MessageProducer {
 	@Override
 	public Transaction newTransaction(String type, String name) {
 		// this enable CAT client logging cat message without explicit setup
+		// Context放置在当前业务线程的ThreadLocal变量中，不存在则初始化
 		if (!m_manager.hasContext()) {
 			m_manager.setup();
 		}

@@ -66,6 +66,11 @@ public class DefaultTransaction extends AbstractMessage implements Transaction {
 	}
 
 	@Override
+	// complete 会首先设置complete标志位，然后交由 m_manager 去完成消息发送。
+	// 核心还是调用context的end方法，该方法会从栈顶弹出事务，
+	// 如果弹出的事务不等于end方法传入的事务，则认为弹出的事务不是我们需要结束的事务，而是被嵌套的子事务，我们继续弹出下一个栈顶元素，即父事务，直到弹出我们需要结束的事务为止。
+	// 在这个过程，会调用validate对事务进行校验。
+	// 然后我们判断栈是否为空，如果为空，则认为end传入的事务为根事务，这个时候我们才调用 m_manager.flush 将消息树上报到服务器。
 	public void complete() {
 		try {
 			if (isCompleted()) {
